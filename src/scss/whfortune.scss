@@ -1,0 +1,141 @@
+@import 'mixin';
+
+
+.fortune{
+	width: 100%;
+	margin: 0 auto;
+	padding: 20px;
+	max-width: 420px;
+	background-color: #D7E0FA;
+	&__subtitle{
+		text-align: center;
+		color: #2A388A;
+		line-height: 21px;
+		padding: 0;
+		margin: 0 0 20px;
+	}
+	.btn{
+		display: block;
+		text-decoration: none;
+		color: #fff;
+		width: fit-content;
+		padding: 4px 6px;
+		text-align: center;
+		margin: 0 auto 20px;
+		box-shadow:rgba(red,0.1) 0px 0px 0px 3px;
+		z-index:1000;
+		background: red;
+		cursor:pointer;
+		user-select: none;
+	}
+}
+
+/*WHEEL*/
+#wheel{
+	width:400px;
+	height:400px;
+	margin: 0 auto;
+	border-radius:50%;
+	position:relative;
+	overflow:hidden;
+	border:8px solid #D1CBC8;
+	box-shadow:rgba(0,0,0,0.2) 0px 0px 10px, rgba(0,0,0,0.05) 0px 3px 0px;
+	transform: rotate(0deg);
+	#inner-wheel{
+		width:100%;
+		height:100%;
+		transition: all 6s cubic-bezier(0,.99,.44,.99);
+		position: relative;
+	}
+	.sec{
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 220px 93px 0;
+		border-color: #3D4DC5 transparent;
+		transform-origin: 93px 220px;
+		left:107px;
+		top:-20px;
+		opacity:1;
+		&:nth-child(even){
+			border-color: #21379F transparent;
+		}
+		&:nth-child(1){
+			transform: rotate(45deg);
+		}
+		&:nth-child(2){
+			transform: rotate(90deg);
+		}
+		&:nth-child(3){
+			transform: rotate(135deg);
+		}
+		&:nth-child(4){
+			transform: rotate(180deg);
+		}
+		&:nth-child(5){
+			transform: rotate(225deg);
+		}
+		&:nth-child(6){
+			transform: rotate(270deg);
+		}
+		&:nth-child(7){
+			transform: rotate(315deg);
+		}
+		&:nth-child(8){
+			transform: rotate(360deg);
+		}
+		.text{
+			width: 100px;
+			margin-top: -180px;
+			color: #ffffff;
+			position: relative;
+			z-index: 10000000;
+			display: block;
+			text-align: center;
+			font-size:14px;
+			margin-left:-50px;
+		}
+	}
+	.arrow{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		background-color: red;
+		width: 20px;
+		height: 10px;
+		border-radius: 0 0 10px 10px;
+		&:before{
+			content: '';
+			position: absolute;
+			top: -60px;
+			left: 0;
+			border: 10px solid transparent;
+			border-bottom: 50px solid red;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
