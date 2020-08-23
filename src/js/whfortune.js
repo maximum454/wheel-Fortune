@@ -3,63 +3,41 @@
 
 
 
-$(function () {
-//set default degree (360*5)
+
+$(document).ready(function () {
+    //set default degree (360*8)
     var degree = 2880;
     //number of clicks = 0
     var clicks = 0;
-        /*WHEEL SPIN FUNCTION*/
-        $('#spin').click(function(){
-            //add 1 every click
-            clicks ++;
+    /*WHEEL SPIN FUNCTION*/
 
-            /*multiply the degree by number of clicks
-          generate random number between 1 - 360,
-        then add to the new degree*/
-            var newDegree = degree*clicks;
-            var extraDegree = Math.floor(Math.random() * (360 - 1 + 1)) + 1;
-            totalDegree = newDegree+extraDegree;
+    $('#spin').click(function () {
+        //add 1 every click
+        clicks++;
 
-            /*let's make the spin btn to tilt every
-            time the edge of the section hits
-            the indicator*/
-            $('#wheel .sec').each(function(){
-                var t = $(this);
-                var noY = 0;
+        var $pointer = $('.fortune__point');
+        var pointerX = $pointer.offset().left + $pointer.width() * 0.5;
+        var pointerY = $pointer.offset().top + $pointer.height() * 0.5;
+        $pointer.hide();
 
-                var c = 0;
-                var n = 1;
-                var interval = setInterval(function () {
-                    c++;
-                    if (c === n) {
-                        clearInterval(interval);
-                    }
+        var newDegree = degree * clicks;
+        var extraDegree = Math.floor(Math.random() * (360 - 1 + 1)) + 1;
+        totalDegree = newDegree + extraDegree;
 
-                    var aoY = t.offset().top;
-                    $("#txt").html(aoY);
-                    console.log(t);
-
-                    /*23.7 is the minumum offset number that
-                    each section can get, in a 30 angle degree.
-                    So, if the offset reaches 23.7, then we know
-                    that it has a 30 degree angle and therefore,
-                    exactly aligned with the spin btn*/
-                    if(aoY < 23.89){
-                        console.log('<<<<<<<<');
-                        $('#spin').addClass('spin');
-                        setTimeout(function () {
-                            $('#spin').removeClass('spin');
-                        }, 300);
-                    }
-                }, 300);
-
-                $('#inner-wheel').css({
-                    'transform' : 'rotate(' + totalDegree + 'deg)'
-                });
-
-                noY = t.offset().top;
-
+        $('.fortune__item').each(function () {
+            $('.fortune__inner').css({
+                'transform': 'rotate(' + totalDegree + 'deg)'
             });
-        })
+        });
+
+        setTimeout(function () {
+            var prize = document.elementFromPoint(pointerX, pointerY);
+            var txt = $(prize).data('prize');
+            $('.fortune__prize').html($(prize).data('prize'));
+        }, 5500);
+    })
 })
+
+
+
 

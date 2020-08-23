@@ -17,6 +17,11 @@
   background-color: #D7E0FA;
 }
 
+.fortune hr {
+  border-color: #2A388A;
+  margin: 20px 0;
+}
+
 .fortune__subtitle {
   text-align: center;
   color: #2A388A;
@@ -46,9 +51,7 @@
           user-select: none;
 }
 
-/*WHEEL*/
-
-#wheel {
+.fortune__wheel {
   width: 400px;
   height: 400px;
   margin: 0 auto;
@@ -63,16 +66,20 @@
           transform: rotate(0deg);
 }
 
-#wheel #inner-wheel {
-  width: 100%;
-  height: 100%;
-  -webkit-transition: all 6s cubic-bezier(0, 0.99, 0.44, 0.99);
-  -o-transition: all 6s cubic-bezier(0, 0.99, 0.44, 0.99);
-  transition: all 6s cubic-bezier(0, 0.99, 0.44, 0.99);
-  position: relative;
+.fortune__point {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+  z-index: 1000;
 }
 
-#wheel .sec {
+.fortune__item {
   position: absolute;
   width: 0;
   height: 0;
@@ -87,71 +94,68 @@
   opacity: 1;
 }
 
-#wheel .sec:nth-child(even) {
+.fortune__item:nth-child(even) {
   border-color: #21379F transparent;
 }
 
-#wheel .sec:nth-child(1) {
+.fortune__item:nth-child(1) {
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+.fortune__item:nth-child(2) {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-#wheel .sec:nth-child(2) {
+.fortune__item:nth-child(3) {
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-#wheel .sec:nth-child(3) {
+.fortune__item:nth-child(4) {
   -webkit-transform: rotate(135deg);
       -ms-transform: rotate(135deg);
           transform: rotate(135deg);
 }
 
-#wheel .sec:nth-child(4) {
+.fortune__item:nth-child(5) {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 
-#wheel .sec:nth-child(5) {
+.fortune__item:nth-child(6) {
   -webkit-transform: rotate(225deg);
       -ms-transform: rotate(225deg);
           transform: rotate(225deg);
 }
 
-#wheel .sec:nth-child(6) {
+.fortune__item:nth-child(7) {
   -webkit-transform: rotate(270deg);
       -ms-transform: rotate(270deg);
           transform: rotate(270deg);
 }
 
-#wheel .sec:nth-child(7) {
+.fortune__item:nth-child(8) {
   -webkit-transform: rotate(315deg);
       -ms-transform: rotate(315deg);
           transform: rotate(315deg);
 }
 
-#wheel .sec:nth-child(8) {
-  -webkit-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-          transform: rotate(360deg);
-}
-
-#wheel .sec .text {
-  width: 100px;
-  margin-top: -180px;
-  color: #ffffff;
+.fortune__inner {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 6s cubic-bezier(0, 0.99, 0.44, 0.99);
+  -o-transition: all 6s cubic-bezier(0, 0.99, 0.44, 0.99);
+  transition: all 6s cubic-bezier(0, 0.99, 0.44, 0.99);
   position: relative;
-  z-index: 10000000;
-  display: block;
-  text-align: center;
-  font-size: 14px;
-  margin-left: -50px;
 }
 
-#wheel .arrow {
+.fortune__arrow {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -164,11 +168,47 @@
   border-radius: 0 0 10px 10px;
 }
 
-#wheel .arrow:before {
+.fortune__arrow:before {
   content: '';
   position: absolute;
   top: -60px;
   left: 0;
   border: 10px solid transparent;
   border-bottom: 50px solid red;
+}
+
+.fortune__text {
+  width: 100px;
+  margin-top: -180px;
+  color: #ffffff;
+  position: relative;
+  z-index: 10000000;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  margin-left: -50px;
+}
+
+.fortune__title-prize {
+  text-align: center;
+  color: #2A388A;
+  line-height: 21px;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.fortune__prize {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 280px;
+  min-height: 20px;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  color: red;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 8px 4px #ffffff;
+          box-shadow: 0 0 8px 4px #ffffff;
+  margin-bottom: 20px;
 }
