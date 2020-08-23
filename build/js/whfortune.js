@@ -24,6 +24,8 @@ $(document).ready(function () {
     var degree = 2880;
     //number of clicks = 0
     var clicks = 0;
+
+    var items = Array(0,45,90,135,180,225,270,315);
     $('.js-spin').click(function () {
         clicks++;
         if (clicks > 1){
@@ -33,7 +35,8 @@ $(document).ready(function () {
 
         $('.fortune__itog').slideUp();
         var newDegree = degree * clicks;
-        var extraDegree = Math.floor(Math.random() * (360 - 1 + 1)) + 1;
+
+        var extraDegree = items[Math.floor(Math.random() * items.length)];
         totalDegree = newDegree + extraDegree;
 
         $('.fortune__item').each(function () {
