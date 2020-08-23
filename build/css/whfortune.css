@@ -12,14 +12,56 @@
 .fortune {
   width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px 20px;
   max-width: 420px;
   background-color: #D7E0FA;
+  position: relative;
 }
 
 .fortune hr {
   border-color: #2A388A;
   margin: 20px 0;
+}
+
+.fortune__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: 1px solid #2A388A;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.fortune__close:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+      -ms-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+  background-color: #2A388A;
+  width: 15px;
+  height: 1px;
+}
+
+.fortune__close:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+      -ms-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #2A388A;
+  width: 15px;
+  height: 1px;
+}
+
+.fortune__close:hover {
+  opacity: .5;
 }
 
 .fortune__subtitle {
