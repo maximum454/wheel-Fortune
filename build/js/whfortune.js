@@ -24,15 +24,17 @@ $(document).ready(function () {
     var degree = 2880;
     //number of clicks = 0
     var clicks = 0;
-    /*WHEEL SPIN FUNCTION*/
-
-    $('#spin').click(function () {
-        //add 1 every click
+    $('.js-spin').click(function () {
         clicks++;
+        if (clicks > 1){
+            return false
+        }
+        $(this).slideUp();
+        $('.fortune__itog').slideUp();
 
         var $pointer = $('.fortune__point');
         var pointerX = $pointer.offset().left + $pointer.width() * 0.5;
-        var pointerY = $pointer.offset().top + $pointer.height() * 0.5;
+        var pointerY = $pointer.offset().top + ($pointer.height() - 40) * 0.5;
         $pointer.hide();
 
         var newDegree = degree * clicks;
@@ -48,7 +50,8 @@ $(document).ready(function () {
         setTimeout(function () {
             var prize = document.elementFromPoint(pointerX, pointerY);
             var txt = $(prize).data('prize');
-            $('.fortune__prize').html($(prize).data('prize'));
+            $('.fortune__prize').html(txt);
+            $('.fortune__itog').slideDown();
         }, 5500);
     })
 })

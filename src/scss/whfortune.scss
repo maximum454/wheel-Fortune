@@ -32,6 +32,10 @@
 		background: red;
 		cursor:pointer;
 		user-select: none;
+		&.disable{
+			opacity: .5;
+			display: none;
+		}
 	}
 	&__wheel{
 		width:400px;
@@ -116,6 +120,9 @@
 			border: 10px solid transparent;
 			border-bottom: 50px solid red;
 		}
+	}
+	&__itog{
+		display: none;
 	}
 	&__text{
 		width: 100px;

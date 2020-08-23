@@ -51,6 +51,11 @@
           user-select: none;
 }
 
+.fortune .btn.disable {
+  opacity: .5;
+  display: none;
+}
+
 .fortune__wheel {
   width: 400px;
   height: 400px;
@@ -175,6 +180,10 @@
   left: 0;
   border: 10px solid transparent;
   border-bottom: 50px solid red;
+}
+
+.fortune__itog {
+  display: none;
 }
 
 .fortune__text {
